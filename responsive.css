@@ -1,0 +1,7 @@
+@media (max-width: 720px){
+  div.heading, div.explain, div.chart { width: auto; }
+  div.heading h1 span.top { display: block; }
+  div.explain p { margin: 1em auto 2em auto; }
+  ul { padding: 0; }
+  img { width: calc(100% - 20px); }
+}
