@@ -1,0 +1,161 @@
+:root {
+	--row-height: 4rem;
+	--primary: lightsalmon;
+}
+
+html {
+	box-sizing: border-box;
+	font-size: 100%;
+	color: #FFF;
+	background-color: black;
+	font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+body {
+	margin: 0 auto;
+	width: 100%;
+	max-width: 60rem;
+	padding: 1rem;
+	line-height: 1.5;
+}
+
+a {
+	color: var(--primary);
+}
+
+.heading {
+	margin: 0 auto;
+	text-align: center;
+}
+
+.heading svg {
+	width: 1.5rem;
+	height: 1.5rem;
+	fill: var(--primary);
+}
+
+.top {
+	color: var(--primary);
+}
+
+.chart {
+	margin: 2rem 0 0;
+	padding: 0;
+	list-style: none;
+	counter-reset: styled-counter;
+}
+
+.chart li {
+	display: flex;
+	align-items: center;
+	background-size: 0% 200%;
+	transition: 0.2s ease;
+}
+
+.chart li:hover {
+	background: hsl(0deg 0% 10%);
+}
+
+.chart li + li {
+	border-top: 1px solid hsl(0, 0%, 20%);
+}
+
+.cover {
+	width: var(--row-height);
+	height: var(--row-height);
+	object-fit: cover;
+	order: -1;
+}
+
+.chart li::before {
+	counter-increment: styled-counter;
+	content: counter(styled-counter);
+	font-weight: bold;
+	font-size: 2rem;
+	flex-shrink: 0;
+	flex-basis: var(--row-height);
+	display: flex;
+	place-content: center;
+	place-items: center;
+	
+	height: var(--row-height);
+	width: var(--row-height);
+}
+
+.details {
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	gap: 0.5rem;
+}
+
+.title {
+	font-size: 1.25rem;
+	line-height: 1;
+	font-weight: bold;
+	text-decoration: none;
+	color: #FFF;
+}
+
+.title:hover {
+	text-decoration: underline;
+}
+
+.artist {
+	font-size: 0.875rem;
+	line-height: 1;
+	color: hsl(0deg 0% 50%);
+}
+
+.sats.desktop {
+	display: none;
+}
+
+.sats {
+	color: var(--primary);
+	font-size: 0.875rem;
+	line-height: 1;
+	white-space: nowrap;
+	display: flex;
+	place-items: center;
+	gap: 0.25rem;
+}
+
+.sats svg {
+	width: 1em;
+	height: 1em;
+	fill: currentColor;
+	margin: 0;
+}
+
+@media (min-width: 40rem) {
+	:root {
+		--row-height: 8rem;
+	}
+
+	.title {
+		font-size: 2rem;
+	}
+
+	.artist {
+		font-size: 1rem;
+	}
+
+	.sats.mobile {
+		display: none;
+	}
+
+	.sats.desktop {
+		display: flex;
+		flex-direction: row-reverse;
+		padding: 0 .5rem;
+		font-size: 1.25rem;
+	}
+
+}
